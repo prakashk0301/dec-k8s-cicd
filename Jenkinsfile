@@ -14,8 +14,8 @@ stages
       sh 'docker push pkw0301/dec-2020:v1'
 } } }
 
-  //  stage ('connect to k8s and run k8s manifest file')
-  //  { steps {} }
+    stage ('connect to k8s and run k8s manifest file')
+    { steps { kubernetesDeploy configs: 'k8s-manifest.yml', kubeConfig: [path: ''], kubeconfigId: 'K8S-CICD', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://'] } }
 
 
 }
