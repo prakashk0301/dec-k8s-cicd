@@ -14,8 +14,8 @@ stages
       sh 'docker push pkw0301/dec-2020:v1'
 } } }
 
-    stage ('connect to k8s and run k8s manifest file')
-    { steps {} }
+  //  stage ('connect to k8s and run k8s manifest file')
+  //  { steps {} }
 
 
 }
