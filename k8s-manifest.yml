@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-cd-demo
+  labels:
+    batch: dec
+    course: devops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      batch: dec
+  template:
+    metadata:
+      labels:
+        batch: dec
+    spec:
+      containers:
+        - name: devops-cont
+          image: pkw0301/dec-2020:v1
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dec-svc
+  labels:
+    batch: dec
+    course: devops
+spec:
+  selector:
+    batch: dec    
+  ports:
+    - port: 80
+  type: NodePort
